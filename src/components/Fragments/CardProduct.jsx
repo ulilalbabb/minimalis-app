@@ -3,7 +3,7 @@ import Button from "../Elements/Button/Button"
 const CardProduct = (props) => {
     const { children } = props
     return ( 
-        <div className="w-full max-w-sm bg-gray-300 rounded-lg shadow-md flex flex-col justify-between mx-2">
+        <div className="w-[290px] max-w-xs bg-gray-300 rounded-lg shadow-md flex flex-col justify-between mx-2 my-2">
             {children}
         </div>
     )
@@ -38,14 +38,16 @@ const BodyCard = (props) => {
 }
 
 const FooterCard = (props) => {
-    const { price } =props
+    const { price, handleAddToCart, id } =props
     return (
         <div className="flex items-center justify-between pb-3 px-5">
-            <span className="text-3xl font-bold">
-                {price}                   
+            <span className="text-xl font-bold">
+               Rp {price.toLocaleString('id-ID', { styles: 'currency', currency: 'IDR'})}                   
             </span>
-            <Button variant="bg-blue-600">
-                Add To Cart
+            <Button 
+                variant="bg-blue-600 hover:bg-white hover:text-blue-600 px-5"
+                onClick={() => handleAddToCart(id)}>
+                    Add To Cart
             </Button>
         </div>
     )

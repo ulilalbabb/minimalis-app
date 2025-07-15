@@ -2,16 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button/Button";
 import CardProduct from "../components/Fragments/CardProduct";
 import { getProduct } from "../services/product-service";
-
-const email = localStorage.getItem("email")
+import { getUsername } from "../services/auth-servise";
 
 const ProductsPage = () => {
     const [cart, setCart] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const [products, setProducts] = useState([])
+    const [username, setUsername] = useState("")
 
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem("cart")) || [])
+    }, [])
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if(token) {
+            setUsername(getUsername(token))
+        } else {
+            window.location.href = "/login"
+        }
     }, [])
 
     useEffect(() => {
@@ -32,7 +41,7 @@ const ProductsPage = () => {
     }, [cart, products])
 
     const handleLogout = () => {
-        localStorage.removeItem("email")
+        localStorage.removeItem("token")
         localStorage.removeItem("password")
         window.location.href = "/login"
     }
@@ -68,7 +77,7 @@ const ProductsPage = () => {
     return (
         <>
             <div className="h-15 bg-blue-600 flex justify-end items-center text-white px-10 gap-5">
-                {email}
+                {username}
                 <Button variant='bg-red-700 hover:bg-white hover:text-red-700 px-4' onClick={handleLogout}>
                     Logout
                 </Button>

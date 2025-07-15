@@ -1,29 +1,44 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '../Elements/Button/Button.jsx'
 import InputForm from '../Elements/Input/Index.jsx'
+import { login } from '../../services/auth-servise.js'
 
 const FormLogin = () => {
+    const [loginFailed, setLoginFailed] = useState("")
+
     const handleLogin = (e) => {
         e.preventDefault()
-        localStorage.setItem("email", e.target.email.value)
-        localStorage.setItem("password", e.target.password.value)
-        window.location.href = "/products"
+        // localStorage.setItem("email", e.target.email.value)
+        // localStorage.setItem("password", e.target.password.value)
+        // window.location.href = "/products"
+        const data = {
+            username: e.target.username.value,
+            password: e.target.password.value 
+        }
+        login(data, (status, res) => {
+            if(status) {
+                localStorage.setItem("token", res)
+                window.location.href = "/products"
+            } else {
+                setLoginFailed(res.response.data)
+            }
+        })
     }
 
-    const emailRef = useRef(null)
+    const usernameRef = useRef(null)
 
     useEffect(() => {
-        emailRef.current.focus()
+        usernameRef.current.focus()
     }, [])
 
     return (
         <form onSubmit={handleLogin}>
             <InputForm 
-                label='Email' 
-                name='email' 
-                type='email' 
+                label='Username' 
+                name='username' 
+                type='text' 
                 placeholder='example@mail.com'
-                ref={emailRef}
+                ref={usernameRef}
             />
             <InputForm 
                 label='Password' 
@@ -32,6 +47,7 @@ const FormLogin = () => {
                 placeholder='********'
             />
             <Button variant='bg-blue-600 w-full' type='submit'>Login</Button>
+            {loginFailed && <p className="text-red-600 text-sm mt-2 text-center">{loginFailed}</p>}
         </form>
     )
 }

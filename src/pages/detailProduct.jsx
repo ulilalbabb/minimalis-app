@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getDetailProduct } from "../services/product-service"
+import Button from "../components/Elements/Button/Button"
 
 const DetailProductPage = () => {
     const { id } = useParams()
@@ -20,7 +21,7 @@ const DetailProductPage = () => {
                         <img 
                             src={product.image} 
                             alt={product.title}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 h-full w-full object-cover"
                             loading="lazy"
                         />
                     </div>
@@ -33,7 +34,7 @@ const DetailProductPage = () => {
                                 $ {product.price}
                             </div>
                             <div className="w-full flex-none text-sm font-medium text-gray-500 mt-2">
-                                Review {product.rating.rate} / 5 ({product.rating.count}) 
+                                Review &#9733;{product.rating.rate} / 5 ({product.rating.count}) 
                             </div>
                         </div>
                         <div className="flex items-baseline mt-4 mb-6 pb-6 border-b border-gray-200">
@@ -43,18 +44,12 @@ const DetailProductPage = () => {
                         </div>
                         <div className="space-x-4 mb-6 text-sm font-medium">
                             <div className="flex-auto flex space-x-4">
-                                <button 
-                                    className="h-10 px-6 border-2 border-gray-300 rounded-lg hover:bg-slate-800 hover:text-white"
-                                    type="submit"
-                                >
+                                <Button variant="bg-blue-600 hover:bg-white hover:text-blue-600 px-5 border-2 border-blue-600">
                                     Buy now
-                                </button>
-                                <button 
-                                    className="h-10 px-6 border-2 border-gray-300 rounded-lg"
-                                    type="button"
-                                >
+                                </Button>
+                                <Button variant="bg-blue-600 hover:bg-white hover:text-blue-600 px-5 border-2 border-blue-600">
                                     Add to bag
-                                </button>
+                                </Button>
                             </div>
                             <p className="text-sm text-gray-500 pt-5">
                                 Free shipping on all continental US orders.

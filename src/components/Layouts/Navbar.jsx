@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux"
 import { useLogin } from "../../hooks/useLogin"
 import Button from "../Elements/Button/Button"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { DarkMode } from "../../context/DarkMode"
+import { MdDarkMode } from "react-icons/md";
+import { FiSun } from "react-icons/fi";
 
 const Navbar = () => {
     const username = useLogin()
     const [totalCart, setTotalCart] = useState(0)
     const cart = useSelector((state) => state.cart.data)
+    const {isDarkMode, setIsDarkMode} = useContext(DarkMode)
 
     useEffect(() => {
         const sum = cart.reduce((acc, item) => {
@@ -31,10 +35,14 @@ const Navbar = () => {
                     src="../assets/shopping-cart.png" 
                     alt="cart-icon"
                     className="w-7 h-7"/>
-                <div className="absolute top-2 right-2 text-sm bg-gray-800 px-1 rounded-md">
+                <div className="absolute top-2 right-17 text-sm bg-gray-800 px-1 rounded-md">
                     {totalCart}
                 </div>
             </div>
+            <Button
+                onClick={() => setIsDarkMode(!isDarkMode)}>
+                {isDarkMode ? <FiSun/> : <MdDarkMode/>}
+            </Button>
         </div>
     )
 }

@@ -8,9 +8,7 @@ const FormLogin = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        // localStorage.setItem("email", e.target.email.value)
-        // localStorage.setItem("password", e.target.password.value)
-        // window.location.href = "/products"
+
         const data = {
             username: e.target.username.value,
             password: e.target.password.value 
@@ -21,6 +19,7 @@ const FormLogin = () => {
                 window.location.href = "/products"
             } else {
                 setLoginFailed(res.response.data)
+                console.log(res)
             }
         })
     }

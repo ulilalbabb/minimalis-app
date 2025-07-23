@@ -12,12 +12,12 @@ const AuthLayouts = (props) => {
     return (
         <div className={`flex justify-center min-h-screen items-center ${isDarkMode && "bg-slate-800"}`}>
             <div className='w-full max-w-xs'>
-                <Button 
+                {/* <Button 
                     variant="absolute top-2 right-2 rounded px-2 py-1 bg-blue-600"
                     onClick={() => setIsDarkMode(!isDarkMode)}
                 >
                     {isDarkMode ? <FiSun /> : <MdDarkMode />}
-                </Button>
+                </Button> */}
                 <h1 className='text-blue-600 text-3xl font-bold mb-2'>
                     {title}
                 </h1>

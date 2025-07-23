@@ -19,9 +19,9 @@ const ProductsPage = () => {
 
     return (
         <>
-            <Navbar />
-            <div className={`flex justify-center py-20 px-5 ${isDarkMode && "bg-slate-800"}`}>
-                <div className="flex flex-wrap w-4/6">
+            <Navbar products={products}/>
+            <div className={`py-20 px-2 ${isDarkMode && "bg-slate-800"}`}>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {products.length > 0 && products.map((product) => (
                     <CardProduct key={product.id}>
                         <CardProduct.HeaderCard image={product.image} id={product.id}/>
@@ -32,10 +32,12 @@ const ProductsPage = () => {
                     </CardProduct>
                     ))}
                 </div>
-                <div className="w-3/6">
-                    <h1 className="text-2xl font-bold text-blue-600 ml-5">Cart</h1>
-                    <TableCart products={products}/>
-                </div>
+                
+                {products.length > 0 && (
+                    <div className="fixed bottom-0 right-0 lg:bottom-10 lg:right-10 backdrop-blur-xs backdrop-filter backdrop-saturate-200 bg-white/30 rounded-xl">
+                        <TableCart products={products}/>
+                    </div>
+                )}
             </div>
         </>
     );

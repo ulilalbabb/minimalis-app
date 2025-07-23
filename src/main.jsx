@@ -11,12 +11,12 @@ import DetailProductPage from "./pages/detailProduct.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store"
 import DarkModeContextProvider from "./context/DarkMode.jsx";
+import { TotalPriceProvider } from "./context/TotalPriceContext.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world</div>,
-    errorElement: <ErrorPage />,
+    element: <ProductsPage />,
   },
   {
     path: "/register",
@@ -25,10 +25,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
-  },
-  {
-    path: "/products",
-    element: <ProductsPage />,
   },
   {
     path: "/profile",
@@ -44,7 +40,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <DarkModeContextProvider>
-        <RouterProvider router={router} />
+        <TotalPriceProvider>
+          <RouterProvider router={router} />
+        </TotalPriceProvider>
       </DarkModeContextProvider>
     </Provider>
   </StrictMode>

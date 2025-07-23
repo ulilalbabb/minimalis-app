@@ -7,7 +7,7 @@ const Button = (props) => {
         } = props;
     return (
         <button 
-            className={`h-10 rounded-lg text-white cursor-pointer ${variant}`}
+            className={`rounded-lg cursor-pointer ${variant}`}
             type={type}
             onClick={onClick}
             >

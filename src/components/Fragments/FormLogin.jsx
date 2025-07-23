@@ -45,7 +45,7 @@ const FormLogin = () => {
                 type='password' 
                 placeholder='********'
             />
-            <Button variant='bg-blue-600 w-full' type='submit'>Login</Button>
+            <Button variant='bg-blue-600 w-full py-1 hover:bg-blue-500' type='submit'>Login</Button>
             {loginFailed && <p className="text-red-600 text-sm mt-2 text-center">{loginFailed}</p>}
         </form>
     )

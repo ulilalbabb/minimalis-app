@@ -6,7 +6,7 @@ import { addToCart } from "../../redux/slices/cartSlice"
 const CardProduct = (props) => {
     const { children } = props
     return ( 
-        <div className="w-full max-w-xs bg-gray-300 rounded-lg shadow-md flex flex-col justify-between mx-2 my-2">
+        <div className="w-full max-w-xs bg-gray-300 rounded-lg shadow-md flex flex-col my-2">
             {children}
         </div>
     )
@@ -19,7 +19,7 @@ const HeaderCard = (props) => {
             <img 
             src={image} 
             alt="product-image" 
-            className="px-5 py-5 rounded-t-lg h-70 w-full" />
+            className=" py-5 rounded-t-lg h-50 lg:h-70 w-full" />
         </Link>
     )
 }
@@ -27,9 +27,9 @@ const HeaderCard = (props) => {
 const BodyCard = (props) => {
     const {children, name} = props
     return (
-        <div className="px-5 pb-5 h-full">
+        <div className="px-2 pb-5 h-full">
             <a href="">
-                <h5 className="text-xl font-semibold tracking-tight">
+                <h5 className="text-lg lg:text-xl font-semibold tracking-tight">
                     {name.substring(0, 20)} ...
                 </h5>
                 <p className="text-sm">
@@ -44,12 +44,12 @@ const FooterCard = (props) => {
     const { price, id } =props
     const dispatch = useDispatch()
     return (
-        <div className="flex items-center justify-between pb-3 px-5">
-            <span className="text-xl font-bold">
+        <div className="flex items-center justify-between pb-3 px-2">
+            <span className="text-xs lg:text-lg font-bold">
                $ {price.toLocaleString('id-ID', { styles: 'currency', currency: 'USD'})}                   
             </span>
             <Button 
-                variant="bg-blue-600 hover:bg-white hover:text-blue-600 px-5"
+                variant="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:translate-y-[-3px] transition-transform duration-300 px-3 text-xs lg:text-sm py-2"
                 onClick={() => dispatch(addToCart({ id, qty: 1 }))}>
                     Add To Cart
             </Button>

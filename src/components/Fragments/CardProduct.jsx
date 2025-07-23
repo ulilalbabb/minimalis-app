@@ -49,7 +49,7 @@ const FooterCard = (props) => {
                $ {price.toLocaleString('id-ID', { styles: 'currency', currency: 'USD'})}                   
             </span>
             <Button 
-                variant="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:translate-y-[-3px] transition-transform duration-300 px-3 text-xs lg:text-sm py-2"
+                variant="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:shadow-3xl hover:text-white hover:translate-y-[-3px] transition-transform duration-300 px-3 text-xs lg:text-sm py-2"
                 onClick={() => dispatch(addToCart({ id, qty: 1 }))}>
                     Add To Cart
             </Button>

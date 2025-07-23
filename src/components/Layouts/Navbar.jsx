@@ -8,17 +8,13 @@ import { FiSun } from "react-icons/fi";
 import { IoBagOutline } from "react-icons/io5";
 import { CiUser } from "react-icons/ci";
 import { Link } from "react-router-dom"
-import { useTotalPrice, useTotalPriceDispatch } from "../../context/TotalPriceContext"
 
-const Navbar = (props) => {
-    const { products } = props
+const Navbar = () => {
     const username = useLogin()
     const [totalCart, setTotalCart] = useState(0)
     const cart = useSelector((state) => state.cart.data)
     const {isDarkMode, setIsDarkMode} = useContext(DarkMode)
-    const [showTooltip, setShowTooltip] = useState(false);
-    const dispatch = useTotalPriceDispatch()
-    const { total } = useTotalPrice()
+
 
     useEffect(() => {
         const sum = cart.reduce((acc, item) => {
@@ -33,8 +29,8 @@ const Navbar = (props) => {
     //     window.location.href = "/login"
     // }
     return (
-        <div className="fixed w-full h-15 bg-blue-600 flex justify-between items-center text-white px-5 gap-5">
-            <p>
+        <div className="fixed w-full h-15 flex justify-between items-center px-5 gap-5">
+            <p className="text-amber-900">
                 LookaLook
             </p>
             <div className="flex items-center gap-5">
@@ -48,9 +44,7 @@ const Navbar = (props) => {
                     </Link>
                     {username}
                 </div>
-                <div className="relative inline-block"
-                    onMouseEnter={() => setShowTooltip(true)}
-                    onMouseLeave={() => setShowTooltip(false)}>
+                <div className="relative inline-block">
                         <Button 
                             variant="flex items-center gap-1">
                             <IoBagOutline />

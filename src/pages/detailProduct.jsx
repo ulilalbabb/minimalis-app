@@ -53,11 +53,11 @@ const DetailProductPage = () => {
                         </div>
                         <div className="space-x-4 mb-6 text-sm font-medium">
                             <div className="flex-auto flex space-x-4">
-                                <Button variant="bg-blue-600 hover:translate-y-[-3px] transition-transform duration-300 text-white hover:shadow-xl px-5 py-2 border-2 border-blue-600">
+                                <Button variant="bg-amber-950 hover:translate-y-[-3px] transition-transform duration-300 text-white hover:shadow-xl px-5 py-2 border-2 ">
                                     Buy now
                                 </Button>
                                 <Button 
-                                    variant="bg-blue-600 flex items-center gap-2 hover:translate-y-[-3px] transition-transform duration-300 text-white hover:shadow-xl px-5 border-2 border-blue-600"
+                                    variant="bg-amber-950 flex items-center gap-2 hover:translate-y-[-3px] transition-transform duration-300 text-white hover:shadow-xl px-5 border-2 "
                                     onClick={() => dispatch(addToCart({ id, qty: 1 }))}>
                                         <BsCartPlus /> Add to bag
                                 </Button>

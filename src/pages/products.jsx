@@ -21,7 +21,7 @@ const ProductsPage = () => {
     return (
         <>
             <Navbar/>
-            <div className={`py-20 px-2 ${isDarkMode && "bg-slate-800"}`}>
+            <div className={`py-20 px-5 ${isDarkMode && "bg-slate-800"}`}>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {products.length > 0 && products.map((product) => (
                     <CardProduct key={product.id}>

@@ -16,15 +16,15 @@ import { TotalPriceProvider } from "./context/TotalPriceContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProductsPage />,
+    element: <LoginPage/>,
   },
   {
     path: "/register",
     element: <RegisterPage />,
   },
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: "/products",
+    element: <ProductsPage />,
   },
   {
     path: "/profile",

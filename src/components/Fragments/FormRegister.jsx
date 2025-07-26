@@ -28,7 +28,7 @@ const FormRegister = () => {
                 type='password' 
                 placeholder='********'
             />
-            <Button variant='bg-blue-600 w-full py-1 hover:bg-blue-500'>Register</Button>
+            <Button variant='bg-amber-950 text-white w-full py-1 hover:bg-amber-800'>Register</Button>
         </form>
     )
 }

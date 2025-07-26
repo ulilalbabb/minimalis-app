@@ -16,7 +16,7 @@ const FormLogin = () => {
         login(data, (status, res) => {
             if(status) {
                 localStorage.setItem("token", res)
-                window.location.href = "/products"
+                window.location.href = "/"
             } else {
                 setLoginFailed(res.response.data)
                 console.log(res)
@@ -45,7 +45,7 @@ const FormLogin = () => {
                 type='password' 
                 placeholder='********'
             />
-            <Button variant='bg-blue-600 w-full py-1 hover:bg-blue-500' type='submit'>Login</Button>
+            <Button variant='bg-amber-950 text-white w-full py-1 hover:bg-amber-800' type='submit'>Login</Button>
             {loginFailed && <p className="text-red-600 text-sm mt-2 text-center">{loginFailed}</p>}
         </form>
     )

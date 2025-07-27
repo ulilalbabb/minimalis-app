@@ -5,7 +5,6 @@ import { login } from '../../services/auth-servise.js'
 
 const FormLogin = () => {
     const [loginFailed, setLoginFailed] = useState("")
-
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -32,11 +31,12 @@ const FormLogin = () => {
 
     return (
         <form onSubmit={handleLogin}>
+            {/* <ToastContainer></ToastContainer> */}
             <InputForm 
                 label='Username' 
                 name='username' 
                 type='text' 
-                placeholder='example@mail.com'
+                placeholder='username'
                 ref={usernameRef}
             />
             <InputForm 
@@ -45,7 +45,11 @@ const FormLogin = () => {
                 type='password' 
                 placeholder='********'
             />
-            <Button variant='bg-amber-950 text-white w-full py-1 hover:bg-amber-800' type='submit'>Login</Button>
+            <Button 
+                variant='bg-amber-950 text-white w-full py-1 hover:bg-amber-800' 
+                type='submit'>
+                    Login
+            </Button>
             {loginFailed && <p className="text-red-600 text-sm mt-2 text-center">{loginFailed}</p>}
         </form>
     )

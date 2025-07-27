@@ -4,7 +4,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RegisterPage from "./pages/register.jsx";
 import LoginPage from "./pages/login.jsx";
-import ErrorPage from "./pages/errorPage.jsx";
 import ProductsPage from "./pages/products.jsx";
 import ProfilePage from "./pages/profile.jsx";
 import DetailProductPage from "./pages/detailProduct.jsx";
@@ -16,7 +15,11 @@ import { TotalPriceProvider } from "./context/TotalPriceContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage/>,
+    element: <div>Home</div>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
   {
     path: "/register",

@@ -3,7 +3,7 @@ import Input from "./Inputt"
 import Label from "./LabelForm"
 
 const InputForm = forwardRef((props, ref) => {
-  const { type, placeholder, name, label } = props;
+  const { type, placeholder, name, label, onChange, value } = props;
   return (
     <div className="mb-4">
       <Label htmlFor={name}>{label}</Label>
@@ -13,6 +13,8 @@ const InputForm = forwardRef((props, ref) => {
         name={name} 
         id={name} 
         ref={ref}
+        onChange={onChange}
+        value={value}
       />
     </div>
   )

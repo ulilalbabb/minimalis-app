@@ -2,7 +2,7 @@ import { forwardRef, useContext } from "react";
 import { DarkMode } from "../../../context/DarkMode";
 
 const Input = forwardRef((props, ref) => {
-  const { type, placeholder, name } = props;
+  const { type, placeholder, name, onChange, value } = props;
   const {isDarkMode} = useContext(DarkMode)
 
   return (
@@ -13,6 +13,8 @@ const Input = forwardRef((props, ref) => {
         name={name} 
         id={name} 
         ref={ref}
+        onChange={onChange}
+        value={value}
     />
   )
 })

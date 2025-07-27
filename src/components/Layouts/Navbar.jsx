@@ -30,10 +30,10 @@ const Navbar = () => {
     // }
     return (
         <div className="fixed w-full h-15 flex justify-between items-center px-5 gap-5">
-            <p className="text-amber-900">
+            <p className={`text-xl text-amber-950 font-bold ${isDarkMode && "text-white"}`}>
                 Minimalis
             </p>
-            <div className="flex items-center gap-5">
+            <div className={`flex items-center gap-5 ${isDarkMode && "text-white"}`}>
                 <Button
                     onClick={() => setIsDarkMode(!isDarkMode)}>
                     {isDarkMode ? <FiSun/> : <MdDarkMode/>}
